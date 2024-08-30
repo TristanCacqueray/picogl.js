@@ -1,3 +1,7 @@
+## next
+
+- Stop using WEBGL_debug_renderer_info.
+
 ## v0.17.9
 - Fix type for Program transform feedback mode.
 
@@ -76,7 +80,7 @@
     - Deprecate `format` parameter to `App.createTexture*()` and `App.createCubemap()`. `internalFormat` is now the primary parameter. `type` and `format` will be automatically determined, and `type` can be overridden if desired.
     - Support for anisotropic filtering (EXT_texture_filter_anisotropic)
 - Support for getting platform translations of shaders (WEBGL_debug_shaders) via `Shader.translatedSource`, `Program.translatedVertexSource` and `Program.translatedFragmentSource`.
-- Renderer information now stored in `PicoGL.WEBGL_INFO.VENDOR` and `PicoGL.WEBGL_INFO.RENDERER`. 
+- Renderer information now stored in `PicoGL.WEBGL_INFO.VENDOR` and `PicoGL.WEBGL_INFO.RENDERER`.
 - Use recommended polling pattern for shader compilation and program linking.
 
 
@@ -100,7 +104,7 @@
 - `VertexArray`
     - Remove methods `vertexIntegerAttributeBuffer()`, `instanceIntegerAttributeBuffer()`, `vertexNormalizedAttributeBuffer()`, `instanceNormalizedAttributeBuffer()`
     - `vertexAttributeBuffer()` and `instanceAttributeBuffer()` can fully specify pointer information (size, type, etc.) via an optional `options` argument.
-- `VertexBuffer`  
+- `VertexBuffer`
     - Track whether they contain integer data based on the type provided. Used for attribute pointer.
     - `normalized()` and `unnormalized()` methods to indicate whether they contain normalized integer data.
 - `App.createInterleavedBuffer()` to create a buffer without any attribute pointer information (site, type, etc.).

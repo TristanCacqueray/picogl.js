@@ -75,8 +75,8 @@ export const PicoGL = Object.assign({
                 gl.getParameter(GL.MAX_FRAGMENT_UNIFORM_VECTORS)
             );
             WEBGL_INFO.SAMPLES = gl.getParameter(GL.SAMPLES);
-            WEBGL_INFO.VENDOR = "(Unknown)";
-            WEBGL_INFO.RENDERER = "(Unknown)";
+            WEBGL_INFO.VENDOR = gl.getParameter(GL.VENDOR);
+            WEBGL_INFO.RENDERER = gl.getParameter(GL.RENDERER);
 
             // Extensions
             WEBGL_INFO.FLOAT_RENDER_TARGETS = Boolean(gl.getExtension("EXT_color_buffer_float"));
@@ -92,12 +92,6 @@ export const PicoGL = Object.assign({
 
             WEBGL_INFO.TEXTURE_ANISOTROPY = Boolean(gl.getExtension("EXT_texture_filter_anisotropic"));
             WEBGL_INFO.MAX_TEXTURE_ANISOTROPY = WEBGL_INFO.TEXTURE_ANISOTROPY ? gl.getParameter(GL.MAX_TEXTURE_MAX_ANISOTROPY_EXT) : 1;
-
-            WEBGL_INFO.DEBUG_RENDERER_INFO = Boolean(gl.getExtension("WEBGL_debug_renderer_info"));
-            if (WEBGL_INFO.DEBUG_RENDERER_INFO) {
-                WEBGL_INFO.VENDOR = gl.getParameter(GL.UNMASKED_VENDOR_WEBGL);
-                WEBGL_INFO.RENDERER = gl.getParameter(GL.UNMASKED_RENDERER_WEBGL);
-            }
 
             // Draft extensions
             WEBGL_INFO.PARALLEL_SHADER_COMPILE = Boolean(gl.getExtension("KHR_parallel_shader_compile"));
